@@ -1,0 +1,144 @@
+DOM -> Document Object Model
+- API where Javascript code can access HTML content of page
+- document: #getElementById, #createElement, #getElementByClassName, querySelectorAll, etc
+- can also get/set attributes
+Event Listeners/ Event Handling
+- https://developer.mozilla.org/en-US/docs/Web/Events
+- common events: click, dblclick, input, change, submit, keydown, keyup,
+	mouseover, mousemove, mouseout, scroll, resize
+- #addEventListener
+
+jQuery 1: Selection and Manipulation, implicit iteration...
+- jQuery built on top of DOM's functionality, intended to work the same across
+	all browsers
+- nicer interface to the DOM
+- wrapper library that does low level DOM manipulation for you
+- 2 globals, jQuery and $ which are the same thing, aliases for each other
+- most common use of $ is to select elements using CSS selectors $("li")
+- jQuery object is an array of HTMLElements
+- jQuery object has more usefl methods like #each, #addClass (implicitly iterates
+	through the elements of jQuery object), #removeClass, #toggleClass
+- #parent, #children, #siblings methods
+- jquery methods typically return jquery objects
+- jQuery#attr, #remove, #append
+jQuery--same function, diff argument types, different actions.
+- pass $ CSS selector -> searches for elements matching selector
+- pass $ HTML code -> creates jQuery object
+- attr(name, value), text(value), val(value) for input tag...
+- indexing takes out of jQuery and accesses the HTMLelement itself.
+- can wrap an HTMLelement like $(html) to create a jQuery object w/ 1 item
+- Can also call $(nodelist) to wrap all elements in list into jQuery object
+
+jQuery won't be used in future-- frameworks abstract most DOM manipulation away.
+But need to know it to deal with legacy codebases.
+
+jQuery Part 2: Events
+- jQuery#on(eventName, callback) instead of vanilla JS's addEventListener
+- #off(eventName) to remove all, #off(eventName, callback) for one
+Event Object
+	a. property: currentTarget, always an HTMLElement
+	b. preventDefault: stops from triggering built-in actions, most important for
+		form submit events since if not cancelled, will perform it
+
+jQuery Part 3: $(document).ready
+- script tags are immediately executed even b4 rest of document parsed
+- Can fix by moving JS to bottom of page
+- by passing $ an anonymous function, it's only called AFTER the DOM is fully
+	loaded.
+	a. it's syntactic sugar for $(document).ready(anonymous function)
+
+jQuery Part 4: All the Ways
+https://open.appacademy.io/learn/full-stack-online/javascript/jquery-iv--all-the-ways
+Selector-style
+- $("ul.cool-things"), a CSS selector and returns all elements matching selector
+
+HTML-style
+- $("<li>Racecars</li>"), takes in string of HTML, builds HTML and returns
+	jQuery object containing top-level elements you built
+
+Wrapper-style
+- $(nativeDomElement), $(arrayOfDomElements)
+- returns a jquery wrapping them, giving access to jquery methods
+
+Ready-style
+- $(someFunction)
+- runs it when DOM is fully loaded, returns nothing
+
+jQuery Part 5: Data Attributes
+- can add own data attribute to any element
+- #data attribute
+- can also be done in HTML with the data-* HTML attribute
+--------------------------------------------------------------------------------
+debugger line -> opens debugger in console
+1. Traditional: bind one click handler to each li in ul
+2. Event Delegation : bind one click handler to ul, trigger handler if click any
+	li inside of the ul
+- #target is the deepest nested version that was clicked on, #currentTarget is outer
+----------------------------------------------------------------------
+jQuery Phase 6: Event Delegation
+- #is method to check if something is something else
+- usage of #currentTarget and #target
+-DOM events typically bubble. Fires on ele x which lives in ele y, then after
+	being fired on X the event will bubble up and be fired on Y
+- this will make Y the currentTarget and X the target
+- ele that generated the event is stored in Target, outermost layer is currentTarget
+- pattern of installing single event handler on parent to catch events on its
+	children is called event delegation
+-jQuery shortcut: #on(event, selector, callback), sets up event delegation for u.
+	a. currentTarget becomes the selector argument
+----------------------------------------------------------------------
+ES6 Prototypical Inheritance
+- ES6 -> __proto__ standardized, can setup inheritance by writing
+child.prototype.__proto__ = parent.prototype;
+child.prototype.constructor = child;
+
+- Changing __proto__ directly is discouraged, should use #getPrototypeOf and
+	#setPrototypeOf instead.
+- pass in prototypes to setPrototypeOf
+- Currently recommended way to do inheritance in JS besides class syntactical
+	sugar is...
+child.prototype = Object.create(parent.prototype);
+child.prototype.constructor = child;
+
+__proto__ is the actual object used in lookup chain to resolve methods
+prototype is the object used to build __proto__ when an object is created w/ new.
+prototype is a property of the funciton object, the prototype of objects
+constructed by that function
+-----------------------------------------------------------------------
+jQuery Docs:
+https://api.jquery.com/
+
+jQuery Fundamentals:
+http://jqfundamentals.com/
+
+- #filter, #not, #has
+- #first, #last, #siblings, #next, #prev, #parent, #children, #parents
+- #find, #closest
+- #add, #addback to add orig selection to current selection
+- #end method to get back to original selection after using traversal methods
+- #removeClass, #addClass, #toggleClass
+- #css, #val, #prop, #attr,
+- #appendTo, #append, #insertAfter, #after
+-"most effective way to place an element depends on the elements to which you
+	already have access."
+- #clone, #remove, #detach, #replaceWith
+- #on, #off
+- w/ on, can use namespaced events (e.g click.logging instead of click)
+- w/ on, can also bind multiple events at once
+- event properties: e.g type, which, target, pageX, pageY
+	a. inside eventHandler ->
+		- this: the element on which evnet handler was bound
+		- event: event object
+	b. pass into $() to use jQuery manipulation
+- usually event#preventDefault -> stops orig action from running
+- unless #stopPropagation on event object it bubbles up to the DOM
+- event delegation -> can do with #on with one more argument!
+	a. e.g binding hanlders to high level elements which detect
+		which low-level elements initiated the event
+
+jQuery Effects:
+- show, hide, fadeIn, fadeOut, slideDown, slideUp, slideToggle, etc.
+- custom effects with #animate
+- #stop and #delay to manage animations
+-------------------------------------------------------------------
+
