@@ -1,0 +1,46 @@
+h1 {
+	font-size: 60px;
+	text-align: center;
+	padding: 10px 0 10px 0;
+	font-weight: 700;
+}
+
+.hanoi {
+	margin: auto;
+	width: 600px;
+	height: 200px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.tower {
+	height: 190px;
+	border-bottom: 10px solid black;
+	width: 180px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.tower li {
+	height: 50px;
+	background-color: #696969;
+	margin: 5px auto;
+	border-radius: 40%;
+}
+
+.hover-tower:hover {
+	border-color: blue;
+}
+
+.chosen {
+	border-color: red;
+}
+
+.chosen:hover {
+	border-color: red;
+}
+
+.winner {
+	background-color: green;
+}

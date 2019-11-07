@@ -184,3 +184,24 @@ Remember installing webpack on a single branch
 - npm install webpack webpack-cli --save-dev
 - Change package.json file, adding private and removing main
 - npx webpack --watch --mode=development
+
+After finishing, looking at instructor solution differences
+- Usage of this rather than just grabbing body through jquery
+- adding game-over and winner class rather than using jquery css method
+- they used jquery's html method to insert text directly
+- handled ul differently
+- many differences in CSS: pseudo content injection, using x and o classes,
+	li's hover is yellow but x/o class hover is white, etc. I see, that's a much
+	neater way of doing it. Adding and subtracting classes to get what you want
+	rather than using jquery's css method to add inline CSS
+----------------------------------------------------------------------------
+Be able to set up Webpack
+Know how a frontend (this project) and backend (the Node version of this project) relate to and communicate with each other
+Know how to send and receive messages between the frontend and backend
+Know how to use JQuery to toggle classes on HTML elements
+Be able to use CSS to style a web page
+Be familiar with styling classes versus styling tags
+
+Huh, huh about margin: 0 auto.
+First number determines up/down, second left/right. (0 up/down, center left/right)
+
