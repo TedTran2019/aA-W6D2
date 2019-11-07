@@ -205,3 +205,5 @@ Be familiar with styling classes versus styling tags
 Huh, huh about margin: 0 auto.
 First number determines up/down, second left/right. (0 up/down, center left/right)
 
+Instructor solution for Towers of Hanoi:
+- Didn't remove all li elements, just add/remove classes, faster redraws

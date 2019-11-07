@@ -38,7 +38,6 @@ class View {
 		let startIdx;
 		let endIdx;
 		$('.hanoi').on('click', '.tower', event => {
-			$('li').addClass('winner');
 			let tower = $(event.currentTarget);
 			if (Number.isInteger(startIdx)) {
 				endIdx = tower.data('nbr');
