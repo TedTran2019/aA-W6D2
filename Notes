@@ -141,4 +141,46 @@ jQuery Effects:
 - custom effects with #animate
 - #stop and #delay to manage animations
 -------------------------------------------------------------------
+Notice in jQuery, the difference of what you get using 'this' using a
+regular function as opposed to an arrow function.
 
+Also, notice the usage of event arg into those callbacks, it's useful so you can
+get event.target, event.currentTarget, etc...
+
+With #data, you don't need to include the data- part in the beginning.
+With #attr, you do need to have it all, e.g data-pos.
+
+Notice for jquery each, the parameters are idx and element itself. You don't need
+to utilize "this". Also, utilize currentTarget instead of target when you can.
+-------------------------------------------------------------------------
+CSS review: content, calc, pseudo-class selectors, box-shadow, border-radius
+
+Hmm, should have used flex insead of float-- would have saved a lot of code
+and I wouldn't have needed to include clearfix.
+- Focus on putting less unnecessary HTML
+- Use of >, e.g .input > label instead of input label
+	a. > means one level deep
+- When to use padding and when to use margin
+- Competely forgot about :focus and :active
+- border-color
+- I still have no idea how to use box-shadow nicely
+
+Think of the properties of padding as a clock, top-right-bottom-left.
+
+Forgot to do the tiny dots in the info section.. just needed to use :after,
+and :last-child along with pseudo-content injections.
+--------------------------------------------------------------------------
+Be able to set up Webpack
+Know how a frontend (this project) and backend (the Node version of this project)
+relate to and communicate with each other
+Know how to use JQuery to manage the DOM
+Know how to query the DOM using JQuery
+Know how to change the DOM using JQuery
+Know how to create event listeners
+Be able to use CSS to style a web page
+
+Remember installing webpack on a single branch
+- npm init -y
+- npm install webpack webpack-cli --save-dev
+- Change package.json file, adding private and removing main
+- npx webpack --watch --mode=development
